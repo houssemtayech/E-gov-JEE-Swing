@@ -1,0 +1,7 @@
+tn\esprit\services\AgentGestionRemote.class
+tn\esprit\services\AgentGestion.class
+tn\esprit\services\AdminGestion.class
+tn\esprit\domain\Reclamation.class
+tn\esprit\domain\Admin.class
+tn\esprit\services\AdminGestionRemote.class
+tn\esprit\domain\Agent.class
