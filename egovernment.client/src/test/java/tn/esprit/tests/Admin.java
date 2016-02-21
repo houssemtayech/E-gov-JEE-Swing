@@ -27,6 +27,7 @@ import businessDelegator.AdminServiceDelegate;
 import businessDelegator.AgentServiceDelegate;
 
 import javax.swing.border.BevelBorder;
+import javax.swing.ImageIcon;
 
 public class Admin extends JFrame {
 
@@ -90,7 +91,7 @@ public class Admin extends JFrame {
 	public Admin() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 772, 466);
+		setBounds(100, 100, 917, 534);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -108,7 +109,7 @@ public class Admin extends JFrame {
 				role.setText(donnes[a][3]);
 			}
 		});
-		table.setBounds(90, 11, 567, 267);
+		table.setBounds(104, 0, 688, 278);
 		contentPane.add(table);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -116,22 +117,28 @@ public class Admin extends JFrame {
 		contentPane.add(scrollPane);
 		
 		login = new JTextField();
-		login.setBounds(122, 311, 111, 20);
+		login.setBounds(139, 364, 126, 20);
 		contentPane.add(login);
 		login.setColumns(10);
 		
 		pwd = new JTextField();
-		pwd.setBounds(329, 311, 111, 20);
+		pwd.setBounds(390, 364, 126, 20);
 		contentPane.add(pwd);
 		pwd.setColumns(10);
 		
 		role = new JTextField();
-		role.setBounds(502, 311, 111, 20);
+		role.setBounds(633, 364, 126, 20);
 		contentPane.add(role);
 		role.setColumns(10);
 		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\maher\\Desktop\\pdev\\BackgroundAdmin2.png"));
+		label.setBounds(0, 0, 900, 500);
+		contentPane.add(label);
+		
 		JButton add = new JButton("add");
-		add.setBounds(122, 371, 111, 23);
+		add.setOpaque(false);
+		add.setBounds(122, 444, 158, 40);
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Agent a = new Agent();
@@ -150,6 +157,7 @@ public class Admin extends JFrame {
 		contentPane.add(add);
 		
 		JButton update = new JButton("update");
+		update.setOpaque(false);
 		update.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -163,10 +171,11 @@ public class Admin extends JFrame {
 				
 			}
 		});
-		update.setBounds(329, 371, 111, 23);
+		update.setBounds(379, 444, 149, 40);
 		contentPane.add(update);
 		
 		JButton delete = new JButton("Delete");
+		delete.setOpaque(false);
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int x = table.getSelectedRow();
@@ -176,19 +185,21 @@ public class Admin extends JFrame {
 				affichage();
 			}
 		});
-		delete.setBounds(502, 371, 111, 23);
+		delete.setBounds(616, 444, 149, 40);
 		contentPane.add(delete);
 		
 		JButton btnNewButton = new JButton("Agent");
+		btnNewButton.setOpaque(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				affichage();
 			}
 		});
-		btnNewButton.setBounds(0, 0, 89, 427);
+		btnNewButton.setBounds(0, 0, 89, 500);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Claim");
+		btnNewButton_1.setOpaque(false);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Adminclaim a = new Adminclaim();
@@ -196,11 +207,7 @@ public class Admin extends JFrame {
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(667, 0, 89, 427);
+		btnNewButton_1.setBounds(809, 0, 89, 500);
 		contentPane.add(btnNewButton_1);
-		
-		JLabel label = new JLabel("");
-		label.setBounds(0, 0, 756, 427);
-		contentPane.add(label);
 	}
 }

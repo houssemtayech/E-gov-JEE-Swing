@@ -31,6 +31,7 @@ import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.beansbinding.BeanProperty;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class Adminclaim extends JFrame {
 
@@ -67,13 +68,35 @@ public class Adminclaim extends JFrame {
 		lagent=AdminServiceDelegate.findReclamationByType();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 737, 498);
+		setBounds(100, 100, 914, 543);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		JLabel labelname = new JLabel("");
+		labelname.setBounds(270, 343, 133, 35);
+		contentPane.add(labelname);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int a = table.getSelectedRow();
+				labelname.setText(donnes[a][1]);
+			}
+		});
+		table.setBounds(106, 11, 683, 281);
+		contentPane.add(table);
+		
+		
+		
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\maher\\Desktop\\pdev\\BackgroundAdmin3.png"));
+		label.setBounds(0, 0, 900, 500);
+		contentPane.add(label);
 		
 		JButton delete = new JButton("delete");
+		delete.setOpaque(false);
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int x = table.getSelectedRow();
@@ -83,50 +106,33 @@ public class Adminclaim extends JFrame {
 				affichage();
 			}
 		});
-	
-		
-		JButton btnNewButton = new JButton("Claim");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				affichage();
-				
-			}
-		});
-		btnNewButton.setBounds(632, 0, 89, 454);
-		contentPane.add(btnNewButton);
-		
-		JButton btnAgent = new JButton("Agent");
-		btnAgent.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Admin a =new Admin();
-				a.setVisible(true);
-				frame.setVisible(false);
-				
-			}
-		});
-		btnAgent.setBounds(0, 0, 89, 454);
-		contentPane.add(btnAgent);
-		JLabel labelname = new JLabel("");
-		labelname.setBounds(270, 343, 133, 35);
-		contentPane.add(labelname);
-		table = new JTable();
-		table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				int a = table.getSelectedRow();
-				labelname.setText(donnes[a][1]);
-			}
-		});
-		table.setBounds(106, 49, 501, 243);
-		contentPane.add(table);
-		delete.setBounds(270, 397, 133, 29);
+		delete.setBounds(375, 431, 158, 35);
 		contentPane.add(delete);
 		
-		
-		
-		JLabel label = new JLabel("");
-		label.setBounds(0, 0, 721, 454);
-		contentPane.add(label);
+			
+			JButton btnNewButton = new JButton("Claim");
+			btnNewButton.setOpaque(false);
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					affichage();
+					
+				}
+			});
+			btnNewButton.setBounds(799, 0, 101, 500);
+			contentPane.add(btnNewButton);
+			
+			JButton btnAgent = new JButton("Agent");
+			btnAgent.setOpaque(false);
+			btnAgent.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Admin a =new Admin();
+					a.setVisible(true);
+					frame.setVisible(false);
+					
+				}
+			});
+			btnAgent.setBounds(0, 0, 89, 500);
+			contentPane.add(btnAgent);
 		
 		
 		
