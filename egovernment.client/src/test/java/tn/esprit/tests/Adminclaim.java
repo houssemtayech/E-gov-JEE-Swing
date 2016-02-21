@@ -31,6 +31,7 @@ import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.beansbinding.BeanProperty;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.ImageIcon;
 
 public class Adminclaim extends JFrame {
@@ -133,11 +134,9 @@ public class Adminclaim extends JFrame {
 			});
 			btnAgent.setBounds(0, 0, 89, 500);
 			contentPane.add(btnAgent);
-		
-		
-		
+
 	}
-	public void affichage(){
+public void affichage(){
 		try {
 			
 			lagent = AdminServiceDelegate.findReclamationByType();

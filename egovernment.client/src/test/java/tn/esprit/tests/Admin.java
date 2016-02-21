@@ -27,6 +27,7 @@ import businessDelegator.AdminServiceDelegate;
 import businessDelegator.AgentServiceDelegate;
 
 import javax.swing.border.BevelBorder;
+
 import javax.swing.ImageIcon;
 
 public class Admin extends JFrame {
@@ -210,4 +211,5 @@ public class Admin extends JFrame {
 		btnNewButton_1.setBounds(809, 0, 89, 500);
 		contentPane.add(btnNewButton_1);
 	}
+
 }
