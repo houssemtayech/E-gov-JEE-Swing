@@ -29,6 +29,9 @@ import businessDelegator.AgentServiceDelegate;
 import javax.swing.border.BevelBorder;
 
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
 
 public class Admin extends JFrame {
 
@@ -99,8 +102,8 @@ public class Admin extends JFrame {
 		contentPane.setLayout(null);
 		
 		table = new JTable();
+		table.setBackground(Color.LIGHT_GRAY);
 		table.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		table.setCellSelectionEnabled(true);
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -110,30 +113,36 @@ public class Admin extends JFrame {
 				role.setText(donnes[a][3]);
 			}
 		});
+		JComboBox combo = new JComboBox();
+		combo.setModel(new DefaultComboBoxModel(new String[] {"Health", "Transport", "Municipality", "Education", "interior", "Post"}));
+		combo.setBounds(489, 307, 133, 20);
+		contentPane.add(combo);
 		table.setBounds(104, 0, 688, 278);
 		contentPane.add(table);
+		
+		
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(104, 246, 535, -234);
 		contentPane.add(scrollPane);
 		
 		login = new JTextField();
-		login.setBounds(139, 364, 126, 20);
+		login.setBounds(154, 378, 126, 20);
 		contentPane.add(login);
 		login.setColumns(10);
 		
 		pwd = new JTextField();
-		pwd.setBounds(390, 364, 126, 20);
+		pwd.setBounds(389, 378, 126, 20);
 		contentPane.add(pwd);
 		pwd.setColumns(10);
 		
 		role = new JTextField();
-		role.setBounds(633, 364, 126, 20);
+		role.setBounds(633, 378, 126, 20);
 		contentPane.add(role);
 		role.setColumns(10);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\maher\\Desktop\\pdev\\BackgroundAdmin2.png"));
+		label.setIcon(new ImageIcon("C:\\Users\\maher\\Desktop\\pdev\\BackgroundAdmin63.png"));
 		label.setBounds(0, 0, 900, 500);
 		contentPane.add(label);
 		
@@ -210,6 +219,115 @@ public class Admin extends JFrame {
 		});
 		btnNewButton_1.setBounds(809, 0, 89, 500);
 		contentPane.add(btnNewButton_1);
+		JButton btnGg = new JButton("gg");
+		btnGg.setOpaque(false);
+		btnGg.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int k =combo.getSelectedIndex();
+				List<Agent> agents= new ArrayList<Agent>();
+				
+				if(k == 0)
+				{
+					agents = AdminServiceDelegate.findAgentByRole("Health");
+					donnes = new String[agents.size()][4];
+				
+				for (int i = 0; i < agents.size(); i++) {
+				
+					donnes[i][0] = String.valueOf(agents.get(i).getId());
+					donnes[i][1] = agents.get(i).getLogin();
+					donnes[i][2] = agents.get(i).getPwd();
+					donnes[i][3] = agents.get(i).getRole();
+					table.setModel(new javax.swing.table.DefaultTableModel(donnes,
+							new String[] { "Id","Login","Password","Role" }));
+					System.out.println("DOOne");
+					}
+			}
+				if(k==1)
+				{
+					agents = AdminServiceDelegate.findAgentByRole("Transport");
+					donnes = new String[agents.size()][4];
+				
+				for (int i = 0; i < agents.size(); i++) {
+				
+					donnes[i][0] = String.valueOf(agents.get(i).getId());
+					donnes[i][1] = agents.get(i).getLogin();
+					donnes[i][2] = agents.get(i).getPwd();
+					donnes[i][3] = agents.get(i).getRole();
+					table.setModel(new javax.swing.table.DefaultTableModel(donnes,
+							new String[] { "Id","Login","Password","Role" }));
+					System.out.println("DOOne");
+				}
+				
+			}
+				if(k==2)
+				{
+					agents = AdminServiceDelegate.findAgentByRole("Municipality");
+					donnes = new String[agents.size()][4];
+				
+				for (int i = 0; i < agents.size(); i++) {
+				
+					donnes[i][0] = String.valueOf(agents.get(i).getId());
+					donnes[i][1] = agents.get(i).getLogin();
+					donnes[i][2] = agents.get(i).getPwd();
+					donnes[i][3] = agents.get(i).getRole();
+					table.setModel(new javax.swing.table.DefaultTableModel(donnes,
+							new String[] { "Id","Login","Password","Role" }));
+					System.out.println("DOOne");	
+				}
+			}
+				if(k==3)
+				{
+					agents = AdminServiceDelegate.findAgentByRole("Education");
+					donnes = new String[agents.size()][4];
+				
+				for (int i = 0; i < agents.size(); i++) {
+				
+					donnes[i][0] = String.valueOf(agents.get(i).getId());
+					donnes[i][1] = agents.get(i).getLogin();
+					donnes[i][2] = agents.get(i).getPwd();
+					donnes[i][3] = agents.get(i).getRole();
+					table.setModel(new javax.swing.table.DefaultTableModel(donnes,
+							new String[] { "Id","Login","Password","Role" }));
+					System.out.println("DOOne");	
+				}
+			}
+				if(k==4)
+				{
+					agents = AdminServiceDelegate.findAgentByRole("interior");
+					donnes = new String[agents.size()][4];
+				
+				for (int i = 0; i < agents.size(); i++) {
+				
+					donnes[i][0] = String.valueOf(agents.get(i).getId());
+					donnes[i][1] = agents.get(i).getLogin();
+					donnes[i][2] = agents.get(i).getPwd();
+					donnes[i][3] = agents.get(i).getRole();
+					table.setModel(new javax.swing.table.DefaultTableModel(donnes,
+							new String[] { "Id","Login","Password","Role" }));
+					System.out.println("DOOne");	
+				}
+			}
+				if(k==5)
+				{
+					agents = AdminServiceDelegate.findAgentByRole("Post");
+					donnes = new String[agents.size()][4];
+				
+				for (int i = 0; i < agents.size(); i++) {
+				
+					donnes[i][0] = String.valueOf(agents.get(i).getId());
+					donnes[i][1] = agents.get(i).getLogin();
+					donnes[i][2] = agents.get(i).getPwd();
+					donnes[i][3] = agents.get(i).getRole();
+					table.setModel(new javax.swing.table.DefaultTableModel(donnes,
+							new String[] { "Id","Login","Password","Role" }));
+					System.out.println("DOOne");	
+				}
+				
+			}
+			}
+		});
+		btnGg.setBounds(269, 306, 167, 23);
+		contentPane.add(btnGg);
 	}
-
 }

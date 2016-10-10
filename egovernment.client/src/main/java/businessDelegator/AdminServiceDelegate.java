@@ -38,4 +38,8 @@ public class AdminServiceDelegate {
 		  
 		  return getProxy().addAgent(agent);
 	  }
+	  public static List<Agent> findAgentByRole(String role)
+	  {
+		  return getProxy().findAgentByRole(role);
+	  }
 }

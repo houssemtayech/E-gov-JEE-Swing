@@ -17,5 +17,6 @@ public interface AdminGestionRemote {
 	 boolean addAgent(Agent agent);
 	 Agent findAgentById(int id);
 	 Reclamation findClaimById(int id);
+	 List<Agent> findAgentByRole(String role);
 }
 

@@ -33,6 +33,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class Adminclaim extends JFrame {
 
@@ -64,6 +65,8 @@ public class Adminclaim extends JFrame {
 	 * Create the frame.
 	 */
 	public Adminclaim() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\maher\\Desktop\\pdev\\logo.png"));
+		setTitle("E-Government");
 		lagent =new ArrayList<Reclamation>();
 	
 		lagent=AdminServiceDelegate.findReclamationByType();

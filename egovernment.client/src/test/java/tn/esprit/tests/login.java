@@ -23,6 +23,7 @@ import javax.swing.Action;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JPasswordField;
+import java.awt.Toolkit;
 
 public class login extends JFrame {
 
@@ -30,6 +31,11 @@ public class login extends JFrame {
 	private JTextField Login;
 	private JPasswordField Pwd;
 	Admin a;
+	GestionPoste b;
+	Edu u ;
+	AffichageRequest1 r;
+	MunicipalityMain m ;
+	ShowServices s;
 	static login frame;
 	/**
 	 * Launch the application.
@@ -51,6 +57,8 @@ public class login extends JFrame {
 	 * Create the frame.
 	 */
 	public login() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\maher\\Desktop\\pdev\\logo.png"));
+		setTitle("E-Government");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 820, 606);
 		contentPane = new JPanel();
@@ -72,7 +80,7 @@ public class login extends JFrame {
 		Login.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\maher\\Desktop\\pdev\\Login-Form.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\maher\\Desktop\\pdev\\Login-Form1.png"));
 		lblNewLabel.setBounds(0, 0, 804, 569);
 		contentPane.add(lblNewLabel);
 		
@@ -82,13 +90,31 @@ public class login extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				String l=Login.getText();
 				String p=Pwd.getText();
-				Agent c=AgentServiceDelegate.Authentification(l, p);
+				AgentServiceDelegate agd = new AgentServiceDelegate();
+				Agent c=agd.Authentification(l, p);
+				System.out.println(c.getRole());
 				
-				if(c == null)
-			 {a = new Admin();
+				
+				if(c.getRole().equals("Admin"))
+				{a = new Admin();
 				a.setVisible(true);}
-				else
-					message.setText("c bon ya m3allem");
+				if(c.getRole().equals("Post"))
+				{b = new GestionPoste();
+				b.setVisible(true);}
+				if(c.getRole().equals("Transport"))
+				{r = new AffichageRequest1();
+				r.setVisible(true);}
+				if(c.getRole().equals("Education"))
+				{u = new Edu();
+				u.setVisible(true);}
+				if(c.getRole().equals("Municipality"))
+				{m = new MunicipalityMain();
+				m.setVisible(true);}
+				if(c.getRole().equals("Interior"))
+				{s= new ShowServices();
+				s.setVisible(true);}
+				else System.out.println("laaaaa");
+				
 				
 			}
 		});

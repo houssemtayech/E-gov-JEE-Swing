@@ -32,5 +32,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="src/main/resources/Picture/DateChooser.jar"/>
+	<classpathentry kind="lib" path="src/main/resources/Picture/iText.jar"/>
+	<classpathentry kind="lib" path="src/main/resources/Picture/jcalendar-1.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

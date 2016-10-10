@@ -11,6 +11,16 @@
 
 	<dependencies>
 	<dependency>
+	<groupId>com.itextpdf</groupId>
+	<artifactId>itextpdf</artifactId>
+	<version>5.5.8</version>
+</dependency>
+	<dependency>
+	<groupId>com.toedter</groupId>
+	<artifactId>jcalendar</artifactId>
+	<version>1.4</version>
+</dependency>
+	<dependency>
 	<groupId>net.java.dev.beansbinding</groupId>
 	<artifactId>beansbinding</artifactId>
 	<version>1.2.1</version>
@@ -57,7 +67,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>org.ug.cs.client.ui.StartApp</mainClass>
+									<mainClass>tn.esprit.tests.Splash</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>

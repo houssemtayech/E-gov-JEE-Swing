@@ -2,10 +2,14 @@ package tn.esprit.services;
 
 import java.util.List;
 
+import javax.ejb.Remote;
+import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import org.jboss.ejb3.annotation.Clustered;
 
 import tn.esprit.domain.Agent;
 import tn.esprit.domain.Reclamation;
@@ -13,7 +17,11 @@ import tn.esprit.domain.Reclamation;
 /**
  * Session Bean implementation class AdminGestion
  */
-@Stateless
+@Stateful
+@Clustered
+@Remote(CounterServiceRemote.class)
+
+
 public class AdminGestion implements AdminGestionRemote {
 	@PersistenceContext(name="egovernment")
 	EntityManager em;
@@ -115,6 +123,15 @@ public class AdminGestion implements AdminGestionRemote {
 			// TODO: handle exception
 		}
 		return ag;
+	}
+
+	@Override
+	public List<Agent> findAgentByRole(String role) {
+		
+		Query qr=em.createQuery("SELECT u FROM Agent u where u.role=:role");
+			qr.setParameter("role", role);
+			return qr.getResultList();
+		
 	}
 
 }
